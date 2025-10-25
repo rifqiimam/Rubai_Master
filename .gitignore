@@ -1,8 +1,22 @@
-HELP.md
+# Compiled class files and build output
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
+# Log files
+*.log
+*.log.*
+logs/
+app.log*
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+
+# Spring Boot
+HELP.md
 
 ### STS ###
 .apt_generated
@@ -20,6 +34,7 @@ target/
 *.ipr
 
 ### NetBeans ###
+/node_modules
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -31,3 +46,46 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Sensitive configuration files
+application-prod.properties
+application-production.properties
+**/application-*.properties
+!**/application-dev.properties
+!**/application.properties
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Kubernetes secrets (if any)
+*-secret.yaml
+secrets/
+
+src/main/resources/application-prod.properties
