@@ -2,6 +2,7 @@ package com.rubai.rubai_master.services.impl
 
 import com.rubai.rubai_master.entity.RegionMaster
 import com.rubai.rubai_master.entity.req.RegionCodeRequest
+import com.rubai.rubai_master.entity.req.UpdateRegionCodeRequest
 import com.rubai.rubai_master.entity.res.DefaultResponse
 import com.rubai.rubai_master.repository.RegionMasterRepository
 import com.rubai.rubai_master.services.RegionMasterService
@@ -44,7 +45,7 @@ class RegionMasterServiceImpl(
         }
     }
 
-    override fun updateRegionMaster(regionCode:String,request: RegionCodeRequest): DefaultResponse {
+    override fun updateRegionMaster(regionCode:String,request: UpdateRegionCodeRequest): DefaultResponse {
         return try {
             log.info("Message : INIT Update Business Master")
 

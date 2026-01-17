@@ -2,6 +2,7 @@ package com.rubai.rubai_master.controllers
 
 import com.rubai.rubai_master.entity.req.AreaCodeRequest
 import com.rubai.rubai_master.entity.req.BusinessCodeRequest
+import com.rubai.rubai_master.entity.req.UpdateBusinessCodeRequest
 import com.rubai.rubai_master.entity.res.DefaultResponse
 import com.rubai.rubai_master.resources.constants.GlobalConstant
 import com.rubai.rubai_master.services.BusinessMasterService
@@ -55,7 +56,7 @@ class BusinessMasterController(
     @PutMapping(GlobalConstant.BUSINESS.UPDATE_BUSINESS_MASTER + "/{businessCode}")
     fun updateBusinessMaster(
         @PathVariable @ExistingBusinessCode businessCode: String,
-        @Valid @RequestBody request: BusinessCodeRequest
+        @Valid @RequestBody request: UpdateBusinessCodeRequest
     ): ResponseEntity<Any> {
         val data = businessMasterService.updateBusinessMaster(businessCode, request)
         return ResponseEntity(
@@ -68,9 +69,9 @@ class BusinessMasterController(
         )
     }
 
-    @DeleteMapping(GlobalConstant.AREA.DELETE_AREA_MASTER + "/{businessCode}")
+    @DeleteMapping(GlobalConstant.BUSINESS.DELETE_BUSINESS_MASTER + "/{businessCode}")
     fun deleteBusinessMaster(
-        @PathVariable @ExistingBusinessCode businessCode: String
+        @PathVariable businessCode: String
     ): ResponseEntity<Any> {
         val data = businessMasterService.deleteBusinessMaster(businessCode)
         return ResponseEntity(

@@ -1,6 +1,7 @@
 package com.rubai.rubai_master.controllers
 
 import com.rubai.rubai_master.entity.req.AreaCodeRequest
+import com.rubai.rubai_master.entity.req.UpdateAreaRequest
 import com.rubai.rubai_master.entity.res.DefaultResponse
 import com.rubai.rubai_master.resources.constants.GlobalConstant
 import com.rubai.rubai_master.services.AreaMasterService
@@ -54,7 +55,7 @@ class AreaMasterController (
     @PutMapping(GlobalConstant.AREA.UPDATE_AREA_MASTER + "/{areaCode}")
     fun updatePayment(
         @PathVariable @ExistingAreaCode areaCode: String,
-        @Valid @RequestBody request: AreaCodeRequest
+        @Valid @RequestBody request: UpdateAreaRequest
     ): ResponseEntity<Any> {
         val data = areaMasterService.updateAreaMaster(areaCode, request)
         return ResponseEntity(

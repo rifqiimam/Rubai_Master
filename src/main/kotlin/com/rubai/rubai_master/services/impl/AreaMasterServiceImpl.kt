@@ -2,6 +2,7 @@ package com.rubai.rubai_master.services.impl
 
 import com.rubai.rubai_master.entity.AreaMaster
 import com.rubai.rubai_master.entity.req.AreaCodeRequest
+import com.rubai.rubai_master.entity.req.UpdateAreaRequest
 import com.rubai.rubai_master.entity.res.DefaultResponse
 import com.rubai.rubai_master.repository.AreaMasterRepository
 import com.rubai.rubai_master.services.AreaMasterService
@@ -45,7 +46,7 @@ class AreaMasterServiceImpl(
         }
     }
 
-    override fun updateAreaMaster(areaCode: String, request: AreaCodeRequest): DefaultResponse {
+    override fun updateAreaMaster(areaCode: String, request: UpdateAreaRequest): DefaultResponse {
         return try {
             log.info("Message : INIT Update Area Master with Code: $areaCode")
 

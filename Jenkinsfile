@@ -10,7 +10,8 @@ pipeline {
         CONTAINER_NAME = 'rubai-master'
         CONFIG_PATH = '/home/deploy/ci-cd/rubai-master/config'
         LOGS_PATH = '/home/deploy/ci-cd/rubai-master/logs'
-        IMAGES_PATH = '/home/deploy/ci-cd/rubai-master/images'
+        IMAGES_PATH = '/home/deploy/ci-cd/images/rubai-master'
+        PORT = '8301'
     }
 
     stages {
@@ -26,7 +27,7 @@ pipeline {
 
                     # Run new container
                     docker run -d --name ${CONTAINER_NAME} \
-                        -p 8087:8087 \
+                        -p ${PORT}:${PORT} \
                         -v /home/deploy/ci-cd/rubai-master/config:/app/config:ro \
                         -v ${LOGS_PATH}:/app/logs \
                         -v ${IMAGES_PATH}:/app/images \
@@ -51,7 +52,7 @@ pipeline {
                     # Health check with better error handling
                     echo "Running health check..."
                     for i in {1..5}; do
-                        if curl -f http://localhost:8086/actuator/health; then
+                        if curl -f http://localhost:${PORT}/actuator/health; then
                             echo "✅ Health check passed!"
                             break
                         else
@@ -71,7 +72,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         success {
             echo "✅ Deployment successful! Version: ${params.VERSION}"

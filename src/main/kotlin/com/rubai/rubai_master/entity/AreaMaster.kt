@@ -7,7 +7,7 @@ import jakarta.persistence.Table
 import java.time.LocalDateTime
 
 @Entity
-@Table(name = "master_areas")
+@Table(name = "master_area")
 data class AreaMaster(
     @Id
     @Column(name = "area_code", nullable = false)
@@ -19,10 +19,10 @@ data class AreaMaster(
     @Column(name = "region_code")
     var regionCode: String? = null,
 
-    @Column(name = "create_at")
+    @Column(name = "created_at")
     var createAt: LocalDateTime? = null,
 
-    @Column(name = "update_at")
+    @Column(name = "updated_at")
     var updateAt: LocalDateTime? = null,
 
     )

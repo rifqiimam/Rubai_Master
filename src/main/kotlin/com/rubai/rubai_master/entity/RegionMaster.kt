@@ -16,9 +16,9 @@ data class RegionMaster(
     @Column(name = "region_name")
     var regionName: String? = null,
 
-    @Column(name = "create_at")
+    @Column(name = "created_at")
     var createAt: LocalDateTime? = null,
 
-    @Column(name = "update_at")
+    @Column(name = "updated_at")
     var updateAt: LocalDateTime? = null,
 )

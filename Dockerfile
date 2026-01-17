@@ -20,7 +20,7 @@ COPY --from=builder /build/target/*.jar app.jar
 
 RUN mkdir -p /app/config /app/images /app/logs
 
-EXPOSE 8086
+EXPOSE 8200
 
 # Make external config optional so env vars can be used instead
 ENTRYPOINT ["java", \

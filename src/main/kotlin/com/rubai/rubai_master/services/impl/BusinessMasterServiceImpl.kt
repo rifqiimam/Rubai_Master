@@ -2,6 +2,7 @@ package com.rubai.rubai_master.services.impl
 
 import com.rubai.rubai_master.entity.BusinessMaster
 import com.rubai.rubai_master.entity.req.BusinessCodeRequest
+import com.rubai.rubai_master.entity.req.UpdateBusinessCodeRequest
 import com.rubai.rubai_master.entity.res.DefaultResponse
 import com.rubai.rubai_master.repository.BusinessMasterRepository
 import com.rubai.rubai_master.services.BusinessMasterService
@@ -47,7 +48,7 @@ class BusinessMasterServiceImpl(
         }
     }
 
-    override fun updateBusinessMaster(businessCode:String,request: BusinessCodeRequest): DefaultResponse {
+    override fun updateBusinessMaster(businessCode:String,request: UpdateBusinessCodeRequest): DefaultResponse {
 
         return try {
             log.info("Message : INIT Update Business Master")

@@ -1,6 +1,7 @@
 package com.rubai.rubai_master.controllers
 
 import com.rubai.rubai_master.entity.req.RegionCodeRequest
+import com.rubai.rubai_master.entity.req.UpdateRegionCodeRequest
 import com.rubai.rubai_master.entity.res.DefaultResponse
 import com.rubai.rubai_master.resources.constants.GlobalConstant
 import com.rubai.rubai_master.services.RegionMasterService
@@ -36,7 +37,7 @@ class RegionMasterController (
         )
     }
 
-    @GetMapping(GlobalConstant.REGION.CREATE_REGION_MASTER)
+    @PostMapping(GlobalConstant.REGION.CREATE_REGION_MASTER)
     fun createRegionMaster(
         @Valid @RequestBody request: RegionCodeRequest
     ): ResponseEntity<Any> {
@@ -54,7 +55,7 @@ class RegionMasterController (
     @PutMapping(GlobalConstant.REGION.UPDATE_REGION_MASTER + "/{regionCode}")
     fun updateRegionMaster(
         @PathVariable @ExistingRegionCode regionCode: String,
-        @Valid @RequestBody request: RegionCodeRequest
+        @Valid @RequestBody request: UpdateRegionCodeRequest
     ): ResponseEntity<Any> {
         val data = regionMasterService.updateRegionMaster(regionCode, request)
         return ResponseEntity(
@@ -69,7 +70,7 @@ class RegionMasterController (
 
     @DeleteMapping(GlobalConstant.REGION.DELETE_REGION_MASTER + "/{regionCode}")
     fun deleteRegionMaster(
-        @PathVariable @ExistingRegionCode regionCode: String
+        @PathVariable regionCode: String
     ): ResponseEntity<Any> {
         val data = regionMasterService.deleteRegionMaster(regionCode)
         return ResponseEntity(
