@@ -11,7 +11,7 @@ pipeline {
         CONFIG_PATH = '/home/deploy/ci-cd/rubai-master/config'
         LOGS_PATH = '/home/deploy/ci-cd/rubai-master/logs'
         IMAGES_PATH = '/home/deploy/ci-cd/images/rubai-master'
-        PORT = '8301'
+        PORT = '8200'
     }
 
     stages {
